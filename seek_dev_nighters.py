@@ -3,17 +3,18 @@ import pytz
 import datetime
 
 
-URL = 'http://devman.org/api/challenges/solution_attempts/?page={}'
+URL = 'http://devman.org/api/challenges/solution_attempts/'
 MORNING_HOUR = 7
 
 
 def load_attempts():
-    pages = 1
-    responce = requests.get(URL.format(pages)).json()
+    param = {'page': 1}
+    responce = requests.get(URL, params=param).json()
     number_of_pages = responce['number_of_pages']
     records = responce['records']
-    records = records+([requests.get(URL.format(page)).json()['records']
-                        for page in range(2, number_of_pages+1)][0])
+    records = records + ([requests.get(URL, params={'page': page})
+                         .json()['records']
+                          for page in range(2, number_of_pages+1)][0])
     return records
 
 
