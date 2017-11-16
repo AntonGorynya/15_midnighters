@@ -1,6 +1,6 @@
 # Night Owls Detector
 
-This script return users which send task in time range 00:00 - 06:59
+This script return Devman's users which send task in time range 00:00 - 06:59
 
 # How to Install
 
