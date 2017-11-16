@@ -4,7 +4,7 @@ This script return users which send task in time range 00:00 - 06:59
 
 # How to Install
 
-Python 3 should be already installed. Then download this script directly:
+Python 3 should be already installed. Then download this script directly from url and run it.
 
 # Quickstart
 
