@@ -4,7 +4,11 @@ This script return Devman's users which send task in time range 00:00 - 06:59
 
 # How to Install
 
-Python 3 should be already installed. Then download this script directly from url and run it.
+Python 3 should be already installed. Then use pip (or pip3 if there is a conflict with old Python 2 setup) to install dependencies:
+
+```bash
+pip install -r requirements.txt # alternatively try pip3
+```
 
 # Quickstart
 
