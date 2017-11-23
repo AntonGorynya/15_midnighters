@@ -20,7 +20,7 @@ def load_attempts():
 
 
 def get_midnighters(users_info):
-    midnighters = []
+    midnighters = {}
     for record in users_info:
         user = record['username']
         local_time_zone = pytz.timezone(record['timezone'])
@@ -28,12 +28,16 @@ def get_midnighters(users_info):
             datetime.datetime.fromtimestamp(record['timestamp']))
         local_time.astimezone(local_time_zone)
         if local_time.hour < MORNING_HOUR:
-            midnighters.append({user: local_time})
+            if user in midnighters:
+                midnighters[user].append(local_time)
+            else:
+                midnighters.update({user: [local_time]})
     return midnighters
 
 
 if __name__ == '__main__':
     midnighters = get_midnighters(load_attempts())
     for user_data in midnighters:
-        user_name, send_time = list(user_data.items())[0]
-        print('{} send {}'.format(user_name, send_time.strftime('%H:%M:%S')))
+        print('{} send:'.format(user_data))
+        for send_time in midnighters[user_data]:
+            print('{:>10}'.format(send_time.strftime('%H:%M:%S')))
