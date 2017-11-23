@@ -18,8 +18,14 @@ Example of script launch on Linux, Python 3.5:
 
 ```bash
 seek_dev_nighters.py
-gdath100500 send 06:15:49
-kadantsev send 01:02:34
+vladmalakhov send:
+  06:30:50
+АлександрКоролевский send:
+  01:29:58
+yarikmakarow send:
+  06:15:47
+SergeiKhrustalev send:
+  06:29:58
 ```
 
 # Project Goals
